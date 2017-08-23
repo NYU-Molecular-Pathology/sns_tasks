@@ -4,9 +4,13 @@
 Module for running Delly2 with the sns pipeline
 '''
 # ~~~~~ LOGGING ~~~~~~ #
-from util import log
 import logging
 import os
+
+# add parent dir to sys.path to import util
+sys.path.insert(0, "..")
+from util import log
+sys.path.pop(0)
 
 script_timestamp = log.timestamp()
 scriptdir = os.path.dirname(os.path.realpath(__file__))
