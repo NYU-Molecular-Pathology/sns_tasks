@@ -20,8 +20,14 @@ call_types:
 - - insertions
   - INS
 
+# name of the sns output subdirectory from which to take input files 
+input_dir: 'BAM-GATK-RA-RC'
+
+# filename pattern to use for input file
+input_pattern: '*.dd.ra.rc.bam'
+
 # file extension for .bcf files
 output_SV_bcf_ext: .bcf
 
 # name of the parent directory to use for the program output
-output_dir: delly2-snv
+output_dir_name: delly2-snv
