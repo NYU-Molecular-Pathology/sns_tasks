@@ -139,7 +139,7 @@ def main(sample, extra_handlers = None):
 
         # submit the command as a qsub job on the HPC
         command = 'sleep 30'
-        job = qsub.submit(command = command, name = task_name + sample.id, stdout_log_dir = qsub_log_dir, stderr_log_dir = qsub_log_dir, sleeps = 1, verbose = True)
+        job = qsub.submit(command = command, name = task_name + '.' + sample.id, stdout_log_dir = qsub_log_dir, stderr_log_dir = qsub_log_dir, sleeps = 1, verbose = True)
 
         return(job)
     else:
