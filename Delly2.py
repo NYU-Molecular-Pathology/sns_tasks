@@ -104,41 +104,6 @@ bam_file
 
 
 
-# def run_delly2(sample):
-#     '''
-#     Run Delly2 on the samples in the analysis
-#     analysis is a SnsWESAnalysisOutput objects
-#     '''
-#     logger.debug("Running Delly2 on analysis: {0}".format(sample))
-#
-#     samples = analysis.samples
-#     # setup the output locations
-#     output_dir = t.mkdirs(path = os.path.join(analysis.dir, configs['output_dir_name']), return_path = True)
-#     # qsub_log_dir = t.mkdirs(path = analysis.list_none(analysis.dirs['logs-qsub']), return_path = True)
-#     qsub_log_dir = analysis.dirs['logs-qsub']
-#
-#     # track the qsub job submissions
-#     jobs = []
-#
-#     for sample in samples:
-#         sample_bam = sample.get_output_files(analysis_step = 'BAM-GATK-RA-RC', pattern = '*.dd.ra.rc.bam')
-#         if sample_bam:
-#             command = delly2_cmd(sampleID = sample.id, bam_file = sample_bam, output_dir = output_dir)
-#             # job = qsub.submit(command = command, params = '-q all.q -j y -wd $PWD', name = "delly2.{0}".format(sample.id), stdout_log_dir = qsub_log_dir, stderr_log_dir = qsub_log_dir, return_stdout = True, verbose = True, sleeps = 1)
-#             # proc_stdout = qsub.submit_job(command = command, params = '-q all.q -j y -wd $PWD', name = "delly2.{0}".format(sample.id), stdout_log_dir = qsub_log_dir, stderr_log_dir = qsub_log_dir, return_stdout = True, verbose = True)
-#             # job_id, job_name = qsub.get_job_ID_name(proc_stdout)
-#
-#             # logger.debug("Submitted job: {0} [{1}]".format(job.name, job.id))
-#             # jobs.append(job)
-#             logger.debug("Job comand is:\n\n{0}\n".format(command))
-#         else:
-#             logger.error("Bam file not found for sample {0}, sample_bam: {1}".format(sample, sample_bam))
-#     # wait for jobs to complete, if there are any in the list
-#     # if jobs:
-#     #     logger.debug([(job.id, job.running(), job.present()) for job in jobs])
-#         # jobs_started = qsub.wait_all_jobs_start(job_id_list)
-#         # if jobs_started:
-#         #     qsub.wait_all_jobs_finished(job_id_list)
 
 def main(sample, extra_handlers = None):
     '''
